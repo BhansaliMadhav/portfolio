@@ -9,7 +9,6 @@ declare module "@remix-run/node" {
 }
 
 export default defineConfig({
-  base: "/portfolio/", // 👈 Important: this must match your GitHub repo name
   plugins: [
     remix({
       future: {
