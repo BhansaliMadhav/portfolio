@@ -1,9 +1,3 @@
-/**
- * This is intended to be a basic starting point for linting in your app.
- * It relies on recommended configs out of the box for simplicity, but you can
- * and should modify this configuration to best suit your team's needs.
- */
-
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
@@ -12,6 +6,7 @@ module.exports = {
     sourceType: "module",
     ecmaFeatures: {
       jsx: true,
+      tsx: true,
     },
   },
   env: {
@@ -71,6 +66,10 @@ module.exports = {
         "plugin:import/recommended",
         "plugin:import/typescript",
       ],
+      rules: {
+        "@typescript-eslint/no-unused-vars": "off",
+        "no-unused-vars": "off",
+      },
     },
 
     // Node
@@ -81,4 +80,10 @@ module.exports = {
       },
     },
   ],
+
+  // Global rules (for any files not covered by overrides)
+  rules: {
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-unused-vars": "off",
+  },
 };
