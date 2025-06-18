@@ -34,10 +34,12 @@ export function HeroSection() {
           >
             View My Work
           </Button>
-          <Button variant="outline" size="lg">
-            <Download className="mr-2 h-4 w-4" />
-            Download CV
-          </Button>
+          <a href="/Madhav_Vijay_Bhansali_Resume.pdf" download={true}>
+            <Button variant="outline" size="lg">
+              <Download className="mr-2 h-4 w-4" />
+              Download CV
+            </Button>
+          </a>
         </div>
       </div>
 
