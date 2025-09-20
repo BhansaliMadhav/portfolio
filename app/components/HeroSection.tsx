@@ -2,7 +2,7 @@ import { ChevronDown, Download } from "lucide-react";
 import { Button } from "./ui/button";
 import TextType from "./TextType";
 import DecryptedText from "./DecryptedText";
-import { WavyBackground } from "components/ui/shadcn-io/wavy-background";
+import { WavyBackground } from "~/components/ui/wavy-background";
 
 export function HeroSection() {
   const scrollToSection = (sectionId: string) => {

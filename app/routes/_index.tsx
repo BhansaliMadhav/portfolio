@@ -9,7 +9,6 @@ import { ExperienceSection } from "~/components/ExperienceSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "~/components/Footer";
 import { getThemeSession } from "~/utils/theme-server";
-import { WavyBackground } from "components/ui/shadcn-io/wavy-background";
 
 export const meta: MetaFunction = () => {
   return [
