@@ -1,5 +1,8 @@
 import { ChevronDown, Download } from "lucide-react";
 import { Button } from "./ui/button";
+import TextType from "./TextType";
+import DecryptedText from "./DecryptedText";
+import { WavyBackground } from "components/ui/shadcn-io/wavy-background";
 
 export function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -10,42 +13,75 @@ export function HeroSection() {
   };
 
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    <WavyBackground
+      backgroundFill="#f5f5f5"
+      colors={["#38bdf8", "#818cf8", "#c084fc", "#e879f9"]}
+      waveWidth={50}
+      blur={10}
+      speed="fast"
+      waveOpacity={0.5}
+      containerClassName="h-full w-full"
+      className="flex items-center justify-center inset-0"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 dark:from-blue-600/20 dark:to-cyan-600/20"></div>
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-          Hi, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
-            Madhav
-          </span>
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-          Full Stack Developer & Devops Enthusiast creating amazing digital
-          experiences
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            onClick={() => scrollToSection("projects")}
-            size="lg"
-            variant="primary"
-          >
-            View My Work
-          </Button>
-          <a href="/Madhav_Vijay_Bhansali_Resume.pdf" download={true}>
-            <Button variant="outline" size="lg">
-              <Download className="mr-2 h-4 w-4" />
-              Download CV
-            </Button>
-          </a>
-        </div>
-      </div>
+      <section
+        id="home"
+        className="min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent"
+      >
+        {/*<div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 dark:from-blue-600/20 dark:to-cyan-600/20" />*/}
+        <div className="relative z-10 text-center px-4">
+          <TextType
+            as={"h1"}
+            text={["Hi, I'm"]}
+            showCursor={false}
+            pauseDuration={1000}
+            textColors={["gray-900"]}
+            className="text-5xl md:text-7xl font-bold"
+          />
+          <TextType
+            as={"h1"}
+            text={" Madhav"}
+            textColors={["cyan-500"]}
+            className="text-5xl md:text-7xl font-bold text-blue-500"
+            showCursor={true}
+            hideCursorWhileTyping={true}
+            cursorCharacter={"_"}
+            initialDelay={200}
+            pauseDuration={1200}
+          />
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="text-gray-500 dark:text-white/60" size={32} />
-      </div>
-    </section>
+          <h1>
+            <DecryptedText
+              text="Full Stack Developer & Devops Enthusiast creating amazing digital experiences"
+              className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto revealed"
+              speed={20}
+              maxIterations={25}
+              animateOn="view"
+              encryptedClassName="encrypted"
+              parentClassName="all-letters"
+              sequential={true}
+            />
+          </h1>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button
+              onClick={() => scrollToSection("projects")}
+              size="lg"
+              variant="primary"
+            >
+              View My Work
+            </Button>
+            <a href="/Madhav_Vijay_Bhansali_Resume.pdf" download={true}>
+              <Button variant="outline" size="lg">
+                <Download className="mr-2 h-4 w-4" />
+                Download CV
+              </Button>
+            </a>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <ChevronDown className="text-gray-500 dark:text-white/60" size={32} />
+        </div>
+      </section>
+    </WavyBackground>
   );
 }

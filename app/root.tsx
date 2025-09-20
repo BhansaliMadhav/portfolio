@@ -17,7 +17,7 @@ export const links: LinksFunction = () => {
     {
       rel: "icon",
       type: "image/svg+xml",
-      href: "/logo.svg", // This sets your favicon
+      href: "/logo.svg",
     },
   ];
 };
@@ -40,11 +40,11 @@ export default function App() {
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
-          <link rel="icon" type="image/svg+xml" href="/portfolio/logo.svg" />
+          <link rel="icon" type="image/svg+xml" href="/logo.svg" />
           <Meta />
           <Links />
         </head>
-        <body className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 dark:from-slate-900 dark:via-blue-900 dark:to-slate-900 transition-colors duration-300">
+        <body className="min-h-screen">
           <Outlet />
           <ScrollRestoration />
           <Scripts />
