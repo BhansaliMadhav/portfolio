@@ -43,7 +43,7 @@ export function ContactSection() {
         </div>
 
         <div className="text-gray-500 dark:text-gray-400">
-          <p>bhansalimadhav03@gmail.com • +91 7219544309</p>
+          <p>bhansalimadhav03@gmail.com • +91 8149350565</p>
         </div>
       </div>
     </section>
