@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    cloud {
+  docker {
+    image 'node:22.21.1-alpine3.23'
+    args '-e DOCKER_HOST=tcp://172.19.0.3:2375'
+    }
         }
     tools {
         nodejs 'node-20'
