@@ -10,6 +10,7 @@ pipeline {
     }
 
     environment {
+        DOCKER_HOST='tcp://172.19.0.3:2375'
         APP_NAME = "react-app"
         IMAGE_NAME = "react-app-image"
         CONTAINER_NAME = "react-app-container"
