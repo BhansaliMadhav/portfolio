@@ -1,5 +1,12 @@
 pipeline {
-    agent any
+    agent {
+  docker {
+    image 'node:22.21.1-alpine3.23'
+    }
+        }
+    tools {
+        nodejs 'node-20'
+    }
 
     environment {
         APP_NAME = "react-app"
