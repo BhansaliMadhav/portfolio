@@ -3,57 +3,60 @@ import { Card } from "./ui/card";
 
 const experience = [
   {
-    title: "Software Developer Intern",
-    company: "DefyD",
-    period: "Apr 2025",
+    title: "Associate Software Developer",
+    company: "Taggd",
+    period: "Nov 2025 to Present",
     description:
-      "Revamped product website to boost retention by 50% and session time by 150%. Developed WhatsApp-based AI workflows, allowing users to perform actions directly in chat. Integrated AI to enable seamless automation without web navigation.",
+      "Optimized product query performance and introduced backend architectural improvements to enhance scalability and response times, while delivering a clean, minimal, and aesthetically refined frontend experience.",
   },
   {
     title: "Product Developer",
     company: "Asta Health Tech",
-    period: "May 2025 to Present",
+    period: "Feb 2025 to Oct 2025",
     description:
-      "Built a hospital management system from a real-time patient monitoring demo. Implemented role-based access and secure login for hospital staff. Ensured data privacy using short-lived asymmetric encryption. Included modules for patient records, staff management, and communication workflows.",
+      "Built a hospital management platform from a real-time patient monitoring prototype. Implemented role-based access, secure login, and core modules for patient records, staff management, and communication workflows.",
   },
+  
 ];
 
 export function ExperienceSection() {
   return (
-    <section
-      id="experience"
-      className="py-20 px-4 bg-gray-50/50 dark:bg-black/20"
-    >
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
-          Work Experience
-        </h2>
-        <div className="space-y-8">
-          {experience.map((exp, index) => (
-            <Card
-              key={index}
-              className="bg-white/80 dark:bg-white/5 border-gray-200/50 dark:border-white/10 backdrop-blur-sm"
-            >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
+    <section id="experience" className="px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl">
+        <div className="section-shell">
+          <h2 className="mb-12 text-center text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-5xl">
+            Work <span className="title-gradient">Experience</span>
+          </h2>
+
+          <div className="space-y-6">
+            {experience.map((exp, index) => (
+              <Card key={`${exp.company}-${exp.title}`} className="relative overflow-hidden p-6">
+                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-cyan-500 to-indigo-500" />
+                <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                      Role {index + 1}
+                    </p>
+                    <h3 className="mt-1 text-xl font-bold text-slate-900 dark:text-white">
                       {exp.title}
                     </h3>
-                    <p className="text-blue-600 dark:text-blue-400 font-semibold">
+                    <p className="text-base font-semibold text-cyan-700 dark:text-cyan-300">
                       {exp.company}
                     </p>
                   </div>
-                  <Badge className="border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 bg-transparent">
-                    {exp.period}
-                  </Badge>
+                  {exp.period && (
+                    <Badge className="border-indigo-300/60 bg-indigo-50 px-3 py-1 text-indigo-700 dark:border-indigo-500/30 dark:bg-indigo-500/10 dark:text-indigo-200">
+                      {exp.period}
+                    </Badge>
+                  )}
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">
+
+                <p className="mt-4 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                   {exp.description}
                 </p>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

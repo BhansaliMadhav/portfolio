@@ -9,21 +9,21 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", ...props }, ref) => {
     const baseClasses =
-      "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 disabled:opacity-50 disabled:pointer-events-none";
+      "inline-flex items-center justify-center rounded-full font-semibold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent disabled:pointer-events-none disabled:opacity-50";
 
     const variants = {
       primary:
-        "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white shadow-lg hover:shadow-xl",
+        "bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-500 text-white shadow-[0_14px_40px_-16px_rgba(14,165,233,0.9)] hover:-translate-y-0.5 hover:shadow-[0_20px_45px_-20px_rgba(99,102,241,0.9)]",
       secondary:
-        "bg-gray-200 dark:bg-white/10 hover:bg-gray-300 dark:hover:bg-white/20 text-gray-900 dark:text-white",
+        "bg-slate-900 text-white shadow-lg hover:bg-slate-800 dark:bg-white/90 dark:text-slate-900 dark:hover:bg-white",
       outline:
-        "border border-gray-300 dark:border-white/20 text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10",
+        "border border-slate-300/80 bg-white/70 text-slate-700 hover:bg-white dark:border-white/20 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10",
     };
 
     const sizes = {
-      sm: "h-9 px-3 text-sm",
-      md: "h-10 px-4 py-2",
-      lg: "h-11 px-8 text-lg",
+      sm: "h-9 px-4 text-sm",
+      md: "h-11 px-5 text-sm",
+      lg: "h-12 px-8 text-base",
     };
 
     return (

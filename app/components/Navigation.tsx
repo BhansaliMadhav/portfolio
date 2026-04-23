@@ -22,48 +22,45 @@ export function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white/20 dark:bg-black/20 backdrop-blur-md z-50 border-b border-gray-200/20 dark:border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
-            Portfolio
-          </div>
+    <nav className="fixed top-3 z-50 w-full px-3 sm:px-5">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border border-white/60 bg-white/75 px-4 py-3 shadow-[0_15px_40px_-30px_rgba(15,23,42,0.75)] backdrop-blur-lg dark:border-white/10 dark:bg-slate-900/65">
+        <button
+          onClick={() => scrollToSection("home")}
+          className="text-lg font-bold tracking-tight"
+          aria-label="Go to home"
+        >
+          Madhav <span className="title-gradient">Portfolio</span>
+        </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button and Theme Toggle */}
-          <div className="flex items-center gap-2 md:hidden">
+        <div className="hidden items-center gap-7 md:flex">
+          {navigationItems.map((item) => (
             <button
-              className="text-gray-700 dark:text-white"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="text-sm font-semibold tracking-wide text-slate-700 transition-colors duration-300 hover:text-cyan-600 dark:text-slate-200 dark:hover:text-cyan-300"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {item.label}
             </button>
-          </div>
+          ))}
         </div>
+
+        <button
+          className="text-slate-700 md:hidden dark:text-white"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/90 dark:bg-black/90 backdrop-blur-md">
-          <div className="px-4 py-4 space-y-4">
+        <div className="mx-auto mt-2 w-full max-w-6xl rounded-2xl border border-white/60 bg-white/90 p-4 shadow-xl backdrop-blur-lg dark:border-white/10 dark:bg-slate-900/92 md:hidden">
+          <div className="space-y-3">
             {navigationItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="block w-full rounded-xl px-3 py-2 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-cyan-700 dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-cyan-300"
               >
                 {item.label}
               </button>

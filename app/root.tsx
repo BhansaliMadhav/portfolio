@@ -19,6 +19,19 @@ export const links: LinksFunction = () => {
       type: "image/svg+xml",
       href: "/logo.svg",
     },
+    {
+      rel: "preconnect",
+      href: "https://fonts.googleapis.com",
+    },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap",
+    },
   ];
 };
 
@@ -44,7 +57,7 @@ export default function App() {
           <Meta />
           <Links />
         </head>
-        <body className="min-h-screen">
+        <body className="min-h-screen font-sans">
           <Outlet />
           <ScrollRestoration />
           <Scripts />

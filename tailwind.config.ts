@@ -7,14 +7,11 @@ export default {
     extend: {
       fontFamily: {
         sans: [
-          "Inter",
+          "Space Grotesk",
+          "Manrope",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
-          "Apple Color Emoji",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
-          "Noto Color Emoji",
         ],
       },
       borderRadius: {
@@ -63,6 +60,20 @@ export default {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+      },
+      keyframes: {
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(22px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "float-slow": "float-slow 8s ease-in-out infinite",
+        "fade-up": "fade-up 650ms ease-out both",
       },
     },
   },
