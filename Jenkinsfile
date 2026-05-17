@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "my-jenkins-app"
-        CONTAINER_NAME = "my-jenkins-app-container"
+        IMAGE_NAME = "portfolio-app"
+        CONTAINER_NAME = "portfolio-container"
+        APP_PORT = "3000"
     }
 
     stages {
@@ -11,12 +12,6 @@ pipeline {
             steps {
                 sh 'docker --version'
                 sh 'docker ps'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
             }
         }
 
@@ -40,9 +35,15 @@ pipeline {
                 sh '''
                 docker run -d \
                 --name $CONTAINER_NAME \
-                -p 3000:3000 \
+                -p $APP_PORT:$APP_PORT \
                 $IMAGE_NAME:latest
                 '''
+            }
+        }
+
+        stage('Check Running Container') {
+            steps {
+                sh 'docker ps'
             }
         }
     }
